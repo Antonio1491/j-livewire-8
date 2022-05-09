@@ -14,7 +14,11 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            //sentence: una oración
+            'name'=>$this->faker->sentence,
+            'free'=>rand(0,1),
+
+            'curse_id'=>rand(1,10)
         ];
     }
 }

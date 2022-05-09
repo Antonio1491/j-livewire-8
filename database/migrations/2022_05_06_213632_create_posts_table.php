@@ -15,16 +15,15 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->id();
             //un post va a perntenecer a un curso
-            $table->unsignedInteger('course_id');
+            $table->unsignedBigInteger('curse_id');
             $table->string('name');
             //se le asigna por default que no son gratis
             $table->boolean('free')->default(0);
 
             $table->timestamps();
-
-            $table->foreign('course_id')->references('id')->on('courses');
+            
+            $table->foreign('curse_id')->references('id')->on('curses');
         });
     }
 
