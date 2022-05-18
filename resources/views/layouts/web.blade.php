@@ -26,8 +26,20 @@
     </div>
   </main>
 
-  <footer>
-
+  <footer class="py-4 text-center">
+    @auth
+    //está url existe porque tenemos instalado jetstream
+      <a href="{{ url('dashboard') }}" class="text-sm text-gray-700 underline">
+        Dashboard
+      </a>
+    @else 
+      <a href="{{ url('login') }}" class="text-sm text-gray-700 underline">
+        Login
+      </a>
+    @endif
+      <a href="{{ url('register') }}" class="text-sm text-gray-700 underline">
+        Register
+      </a>
   </footer>
 </body>
 </html>
