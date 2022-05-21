@@ -13,12 +13,27 @@ class Curse extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     // Nombre del campo virtual en medio de getAttribute 
     public function getExcerptAttribute()
     {
         return substr($this->description, 0,80) . "...";
     }
 
-    
+    public function similar()
+    {
+        //Ejecutar una condición de acuerdo a la categoría respecto al curso actual
+        //la relación con el usuario
+        //obtener (cantidad)
+        return $this->where('category_id', $this->category_id)
+        ->with('user')
+        ->take(2)
+        ->get();
+    }
 
 }
